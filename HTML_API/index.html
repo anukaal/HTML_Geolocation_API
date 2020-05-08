@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <p> Click the button to get your coordination .</p>
+        <button onclick="getLocation()"> Try it Now</button>
+        <p id="Demo"></p>
+        <script>
+            var x = document.getElementById("Demo");
+            function getLocation(){
+                if (navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                }
+                else {
+                    x.innerHTML = "GeoLocation is not supported by this browser .";
+                }
+            }
+            function showPosition(position){
+                x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Logitude: " + position.coords.longitude;
+            }
+        </script>
+    </body>
+</html>
